@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import { AbstractControl, FormGroup, ValidatorFn } from '@angular/forms';
+import { Component, Inject } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { RegisterService } from 'src/app/services/register.service';
+
 
 @Component({
   selector: 'app-register',
@@ -7,16 +10,33 @@ import { AbstractControl, FormGroup, ValidatorFn } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  registrationForm = new FormGroup({
-
-  })
   textToShow="Upload your photo"
   formSubmitted = false
-  proceedRegistration()
-  {
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private registerService: RegisterService,
+    public dialogRef: MatDialogRef<RegisterComponent>) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  registrationForm = this.formBuilder.group({
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    email: ['', Validators.required],
+    mobileNumber: ['', Validators.required],
+    hobbies: [''],
+    addressType: [''],
+    homeAddress: [''],
+    companyAddress: ['']
+  })
+  proceedRegistration() {
     this.formSubmitted = true
     if(this.registrationForm.valid)
     {
+      console.log(this.registrationForm.value);
       alert("Registration successfull");
     }
   }
@@ -51,10 +71,11 @@ export class RegisterComponent {
   homeList:string[]=['Home Address1','Home Address2'];
 
   companyList:string[]=['Company Address1','Company Address2'];
-  constructor(){ }
   ngOnInit(){}
   onChange(event: any){
     console.log(event.value);
   }
+
+
 
 }

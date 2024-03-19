@@ -4,15 +4,11 @@
   align-items: center;
   height: 100vh;
 }
-.background-image{
-  background-image: url("../../../assets/backgroundImage.jpeg");
-  width:45%;
-}
-/* .img{
-  float:right;
-  /* margin-top: 0px;
-  margin-right: 30%;
+/* .background-image{
+  background-image: url("../../../assets/back.jpeg");
+  width:75%;
 } */
+
 .center .container
 {
   margin: 30%;

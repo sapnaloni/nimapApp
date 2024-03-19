@@ -18,5 +18,9 @@ export class RegisterService {
   {
     return this.http.get(`${this.url}/${id}`);
   }
+
+  adduser(data:any){
+    return this.http.post('', data);
+  }
 }
 

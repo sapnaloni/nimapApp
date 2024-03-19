@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { RegisterComponent } from '../register/register.component';
+
 
 @Component({
   selector: 'app-login',
@@ -23,10 +26,20 @@ proceedLogin()
   }
 }
 locationList:string[]=['Pune','Bangalore','Chennai','Mumbai','Satara','Solapur','Kolhapur','Nagpur'];
-constructor(){ }
+constructor(public dialog: MatDialog){ }
 ngOnInit(){}
 onChange(event: any){
   console.log(event.value);
+}
+
+openDialog(): void {
+  const dialogRef = this.dialog.open(RegisterComponent, {
+    width: '600px'
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+  });
 }
 
 }

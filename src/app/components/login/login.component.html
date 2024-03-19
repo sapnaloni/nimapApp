@@ -1,6 +1,6 @@
 
 <h1 class="text-left" style="color: red;">Home Page</h1>
-
+<div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!--Links-->
   <ul class="navbar-nav">
@@ -35,22 +35,18 @@
 </li>
   </ul>
 </nav>
-<br><br><br><br>
-
+</div>
 <div class="container">
   <div class="background-image">
     <form [formGroup]="loginForm" (ngSubmit)="proceedLogin()">
       <div class="form-group col-md-6">
-        <label for="inputjob4" style="font-style: italic;">I AM LOOKING FOR...</label><br>
+        <label for="inputjob4" style="font-style: italic;" style="color: beige;">I AM LOOKING FOR...</label><br>
         <input type="job" class="form-control" id="inputjob4" placeholder="Enter a Job Description" formControlName="job"/>
-
-        <br><br>
-
         <mat-checkbox layout-align="center center">
           Full Time
         </mat-checkbox>
 
-        <mat-checkbox indeterminate="true">
+        <mat-checkbox >
           Part Time/Casual/Freelance
         </mat-checkbox>
 
@@ -67,15 +63,8 @@
       <div class="form-group col-md-6">
         <input type="search" class="form-control" id="inputsearch4" placeholder="Search" formControlName="search"><br><br>
       </div>
-      <button routerLink="/register" class="btn btn-primary">Register</button>
+      <button (click)="openDialog()" class="btn btn-primary">Register</button>
     </form>
   </div>
 
-</div>
-<br><br>
-<div style="text-align: center;" >
-  <h3 style="font-style: italic;">We're leaders in</h3><br>
-  <h1>Creative Digital Recruitment</h1>
-
-  <p>Based in Surry hills,the creative hub of sydney we are surrounded by creativity<br>and that reflects on the type of jobs we recruit for</p>
 </div>

@@ -12,7 +12,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { UserComponent } from './components/user/user.component';
 import { ThankComponent } from './components/thank/thank.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatSliderModule } from '@angular/material/slider';
+import { FooterComponent } from './components/footer/footer.component'
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     UserComponent,
-    ThankComponent
+    ThankComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatSelectModule,
     MatCheckboxModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSliderModule,
+    MatDialogModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA], //newly added
   providers: [],
