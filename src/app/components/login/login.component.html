@@ -1,1 +1,10 @@
 <p>login works!</p>
+<h1 class="text-center">Login Page</h1>
+<div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="proceedLogin()">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Email:</label>
+        <input type="email" class="form-control" id="inputEmail4" placeholder="Enter your Email" formControlName="email"/>
+      </div>
+    </form>
+</div>
