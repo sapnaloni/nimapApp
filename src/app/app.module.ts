@@ -10,7 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { UserComponent } from './components/user/user.component';
-//import { UserComponent } from './user/user.component';
+import { ThankComponent } from './components/thank/thank.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { UserComponent } from './components/user/user.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    UserComponent
+    UserComponent,
+    ThankComponent
   ],
   imports: [
     BrowserModule,
@@ -27,9 +29,8 @@ import { UserComponent } from './components/user/user.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSelectModule,
-    MatCheckboxModule
-
-
+    MatCheckboxModule,
+    HttpClientModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA], //newly added
   providers: [],

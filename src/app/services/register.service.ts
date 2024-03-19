@@ -4,9 +4,10 @@ import { HttpClient } from '@angular/common/http'
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class RegisterService {
 
   constructor(private http: HttpClient) { }
+
   url="https://fakestoreapi.com/users";
 
   getUsers()
@@ -18,3 +19,4 @@ export class LoginService {
     return this.http.get(`${this.url}/${id}`);
   }
 }
+

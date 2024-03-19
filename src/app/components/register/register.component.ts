@@ -10,7 +10,7 @@ export class RegisterComponent {
   registrationForm = new FormGroup({
 
   })
-
+  textToShow="Upload your photo"
   formSubmitted = false
   proceedRegistration()
   {
@@ -45,6 +45,12 @@ export class RegisterComponent {
 
 
   countryList:string[]=['India','USA','Pakistan','England','Dubai','Indonesia','Brazil','Germany'];
+
+  addressList:string[]=[];
+
+  homeList:string[]=['Home Address1','Home Address2'];
+
+  companyList:string[]=['Company Address1','Company Address2'];
   constructor(){ }
   ngOnInit(){}
   onChange(event: any){

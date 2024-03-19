@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent {
-  onButtonClick(): void {
-    alert('I Agreed to Proceed!!!');
-    // Add your custom logic here
-  }
+  // // onButtonClick(): void {
+  // //   alert('I Agreed to Proceed!!!');
+  // //   // Add your custom logic here
+  // }
 }
