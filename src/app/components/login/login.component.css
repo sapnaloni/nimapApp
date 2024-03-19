@@ -1,0 +1,12 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+
+.background-image{
+  background-image: url("../../../assets/backgroundImage.jpeg");
+  width:35%;
+}

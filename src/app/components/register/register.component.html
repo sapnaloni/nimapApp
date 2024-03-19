@@ -1,0 +1,139 @@
+<p>register works!</p>
+
+<h1 class="text-center">REGISTRATION FORM</h1>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!--Links-->
+  <ul class="navbar-nav">
+      <li class="nav-item">
+          <a class="nav-link" href="#">HOME</a>
+      </li>
+
+      <li class="nav-item">
+          <a class="nav-link" href="#">ABOUT US</a>
+      </li>
+
+      <li class="nav-item">
+          <a class="nav-link" href="#">JOBS</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">CLIENTS</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">EMPLOYEES</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="#">CONTACT US</a>
+</li>
+  </ul>
+</nav><br><br>
+
+<div class="center">
+<div class="container">
+  <form [formGroup]="registrationForm" (ngSubmit)="proceedRegistration()">
+    <div class="form-row">
+
+      <div class="form-group col-md-6">
+        <input type="firstName" class="form-control" id="inputfirstName4" placeholder="First Name" formControlName="firstName">
+      </div>
+
+      <!--To show error-->
+      <div *ngIf="formSubmitted" class="text-danger">
+        <div *ngIf="registrationForm.get('firstName')?.errors?.['required']">firstName required</div>
+        <div *ngIf="registrationForm.get('firstName')?.errors?.['maxlength']">Should not exceeds 20 character</div>
+        <div *ngIf="registrationForm.get('firstName')?.errors?.['pattern']">Enter only alphabetic characters</div>
+      </div><br><br>
+
+      <div class="form-group col-md-6">
+        <input type="lastName" class="form-control" id="inputlastName4" placeholder="Last Name" formControlName="lastName">
+      </div>
+
+      <!--To show error-->
+      <div *ngIf="formSubmitted" class="text-danger">
+        <div *ngIf="registrationForm.get('lastName')?.errors?.['required']">Last Name required</div>
+      </div><br><br>
+
+
+      <div class="form-group col-md-6">
+        <!-- <label for="inputEmail4">Email</label> -->
+        <input type="email" class="form-control" id="inputEmail4" placeholder="Email" formControlName="email">
+      </div>
+
+      <!--To show error-->
+      <div *ngIf="formSubmitted" class="text-danger">
+        <div *ngIf="registrationForm.get('email')?.errors?.['required']">Email required</div>
+        <div *ngIf="registrationForm.get('email')?.errors?.['email']">Please enter your correct email</div>
+      </div><br><br>
+
+      <div class="form-group col-md-6">
+        <input type="mobileNumber" class="form-control" id="inputMobileNumer4" placeholder="Mobile Number" formControlName="mobileNumber">
+      </div>
+
+      <!--To show error-->
+      <div *ngIf="formSubmitted" class="text-danger">
+        <div *ngIf="registrationForm.get('mobileNumber')?.errors?.['required']">Mobile Number Required</div>
+        <div *ngIf="registrationForm.get('mobileNumber')?.errors?.['maxlength']">Enter 10 numbers</div>
+      </div><br><br>
+
+
+      <div class="form-group col-md-6">
+        <label for="inputmobileNumber4">Age</label>
+        <mat-slider min="20" max="60" step="1" value="1.5"></mat-slider>
+      </div>
+
+       <!--To show error-->
+       <div *ngIf="formSubmitted" class="text-danger">
+        <div *ngIf="registrationForm.get('age')?.errors?.['required']">Age Required</div>
+        <div *ngIf="registrationForm.get('age')?.errors?.['age']">Please select age</div>
+      </div><br><br>
+
+
+      <div class="form-group col-md-6">
+        <mat-form-field appearance="fill">
+          <mat-label>State</mat-label>
+          <mat-select (selectionChange)="onChange($event)">
+            <mat-option *ngFor="let state of stateList" [value]="state">{{state}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+      <div class="form-group col-md-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Country</mat-label>
+          <mat-select (selectionChange)="onChange($event)">
+            <mat-option *ngFor="let country of countryList" [value]="country">{{country}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group col-md-6">
+        <input type="address" class="form-control" id="inputaddress4" placeholder="Address" formControlName="address">
+      </div>
+
+      <!--To show error-->
+      <div *ngIf="formSubmitted" class="text-danger">
+        <div *ngIf="registrationForm.get('address')?.errors?.['required']">Address required</div>
+        <div *ngIf="registrationForm.get('address')?.errors?.['address']">Please select address</div>
+      </div><br><br>
+
+      <div class="form-group col-md-6">
+        <input type="tags" class="form-control" id="inputtags4" placeholder="Tags" formControlName="tags">
+      </div>
+
+      <!--To show error-->
+      <div *ngIf="formSubmitted" class="text-danger">
+        <div *ngIf="registrationForm.get('tags')?.errors?.['required']">Tags required</div>
+        <div *ngIf="registrationForm.get('tags')?.errors?.['tags']">Please select Tags</div>
+      </div><br><br>
+
+      <button type="submit" class="btn btn-danger">cancel</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+
+      </div>
+  </form>
+</div>
+</div>

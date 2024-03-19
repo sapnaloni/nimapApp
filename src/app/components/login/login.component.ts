@@ -22,4 +22,11 @@ proceedLogin()
     alert("Login successfull")
   }
 }
+locationList:string[]=['Pune','Bangalore','Chennai','Mumbai','Satara','Solapur','Kolhapur','Nagpur'];
+constructor(){ }
+ngOnInit(){}
+onChange(event: any){
+  console.log(event.value);
+}
+
 }

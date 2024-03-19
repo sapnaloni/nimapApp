@@ -1,10 +1,71 @@
 <p>login works!</p>
-<h1 class="text-center">Login Page</h1>
+<h1 class="text-left" style="color: red;">Home Page</h1>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!--Links-->
+  <ul class="navbar-nav">
+      <li class="nav-item">
+          <a class="nav-link" href="#">HOME</a>
+      </li>
+
+      <li class="nav-item">
+          <a class="nav-link" href="#">ABOUT US</a>
+      </li>
+
+      <li class="nav-item">
+          <a class="nav-link" href="#">JOBS</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">CLIENTS</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">EMPLOYEES</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="#">CONTACT US</a>
+</li>
+  </ul>
+</nav>
+
 <div class="container">
+  <div class="background-image">
     <form [formGroup]="loginForm" (ngSubmit)="proceedLogin()">
       <div class="form-group col-md-6">
-        <label for="inputEmail4">Email:</label>
-        <input type="email" class="form-control" id="inputEmail4" placeholder="Enter your Email" formControlName="email"/>
+        <label for="inputjob4" style="font-style: italic;">I AM LOOKING FOR...</label><br>
+        <input type="job" class="form-control" id="inputjob4" placeholder="Enter a Job Description" formControlName="job"/>
+
+        <br><br>
+
+        <mat-checkbox layout-align="center center">
+          Full Time
+        </mat-checkbox>
+
+        <mat-checkbox indeterminate="true">
+          Part Time/Casual/Freelance
+        </mat-checkbox>
+
+        <div class="form-group col-md-6">
+          <mat-form-field appearance="fill">
+            <mat-label>Select your Location</mat-label>
+            <mat-select (selectionChange)="onChange($event)">
+              <mat-option *ngFor="let location of locationList" [value]="location">{{location}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div>
+      <br>
+      <button type="submit" class="btn btn-primary">Register</button>
+
     </form>
+  </div>
+
+</div>
+<div style="text-align: center;" >
+  <h3 style="font-style: italic;">We're leaders in</h3><br>
+  <h1>Creative Digital Recruitment</h1>
+
+  <p>Based in Surry hills,the creative hub of sydney we are surrounded by creativity<br>and that reflects on the type of jobs we recruit for</p>
 </div>
