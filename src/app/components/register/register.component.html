@@ -1,5 +1,6 @@
 
-<h1 mat-dialog-title>register Form</h1>
+<h1 mat-dialog-title>Register Form</h1>
+
 <div mat-dialog-content>
 <!-- <div class="image-container">
   <a [routerLink]="['/user']">
@@ -7,17 +8,22 @@
   <p>{{textToShow}}</p>
 </a>
 </div> -->
+
 <div class="container">
-  <div class="background-image">
-  <form [formGroup]="registrationForm">
+
+  <!-- <form [formGroup]="registrationForm"> -->
+    <form (ngSubmit)="onSubmit">
     <br><br>
+    <div class="form-group">
+      <input type="file" class="form-control" id="inputprofile4" placeholder="Profile Photo" formControlName="profile">
+    </div><br>
     <div class="form-row">
       <div class="form-group col-md-9">
-        <input type="text" class="form-control" id="inputfirstName4" placeholder="First Name" formControlName="firstName">
+        <input type="text" class="form-control" id="inputfirstName4" placeholder="Enter your first name less than 20 characters" formControlName="firstName">
       </div>
 
       <!--To show error-->
-      <div *ngIf="formSubmitted" class="text-danger">
+      <div class="text-danger">
         <div *ngIf="registrationForm.get('firstName')?.errors?.['required']">firstName required</div>
         <div *ngIf="registrationForm.get('firstName')?.errors?.['maxlength']">Should not exceeds 20 character</div>
         <div *ngIf="registrationForm.get('firstName')?.errors?.['pattern']">Enter only alphabetic characters</div>
@@ -28,7 +34,7 @@
       </div>
 
       <!--To show error-->
-      <div *ngIf="formSubmitted" class="text-danger">
+      <div  class="text-danger">
         <div *ngIf="registrationForm.get('lastName')?.errors?.['required']">Last Name required</div>
       </div><br><br>
 
@@ -39,7 +45,7 @@
       </div>
 
       <!--To show error-->
-      <div *ngIf="formSubmitted" class="text-danger">
+      <div  class="text-danger">
         <div *ngIf="registrationForm.get('email')?.errors?.['required']">Email required</div>
         <div *ngIf="registrationForm.get('email')?.errors?.['email']">Please enter your correct email</div>
       </div><br><br>
@@ -49,7 +55,7 @@
       </div>
 
       <!--To show error-->
-      <div *ngIf="formSubmitted" class="text-danger">
+      <div  class="text-danger">
         <div *ngIf="registrationForm.get('mobileNumber')?.errors?.['required']">Mobile Number Required</div>
         <div *ngIf="registrationForm.get('mobileNumber')?.errors?.['maxlength']">Enter 10 numbers</div>
       </div><br><br>
@@ -61,7 +67,7 @@
       </div>
 
        <!--To show error-->
-       <div *ngIf="formSubmitted" class="text-danger">
+       <div  class="text-danger">
         <div *ngIf="registrationForm.get('age')?.errors?.['required']">Age Required</div>
         <div *ngIf="registrationForm.get('age')?.errors?.['age']">Please select age</div>
       </div><br><br>
@@ -70,7 +76,7 @@
       <div class="form-group col-md-9">
         <mat-form-field appearance="fill">
           <mat-label>State</mat-label>
-          <mat-select (selectionChange)="onChange($event)">
+          <mat-select >
             <mat-option *ngFor="let state of stateList" [value]="state">{{state}}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -80,29 +86,43 @@
       <div class="form-group col-md-9">
         <mat-form-field appearance="fill">
           <mat-label>Country</mat-label>
-          <mat-select (selectionChange)="onChange($event)">
+          <mat-select >
             <mat-option *ngFor="let country of countryList" [value]="country">{{country}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
 
-      <div class="form-group col-md-9">
+      <!-- <div class="form-group col-md-9">
         <mat-form-field appearance="fill">
-          <mat-label>Address Type</mat-label>
-          <mat-select (selectionChange)="onChange($event)" formControlName="addressType">
-            <mat-option value="1">Home</mat-option>
-            <mat-option value="2">Company</mat-option>
+          <mat-label>Address</mat-label>
+          <mat-select >
+            <mat-option *ngFor="let address of addressList" [value]="address">{{address}}</mat-option>
+          </mat-select>-->
+          <!-- <mat-label>Home</mat-label> -->
+        <!--  <mat-select >
+            <mat-option *ngFor="let home of homeList" [value]="home">{{home}}</mat-option>
+          </mat-select>-->
+          <!-- <mat-label>company</mat-label> -->
+        <!-- <mat-select >
+            <mat-option *ngFor="let company of companyList" [value]="company">{{company}}</mat-option>
           </mat-select>
         </mat-form-field>
-      </div>
+      </div> -->
 
-      <div class="form-group col-md-9">
-        <input type="text" class="form-control" id="inputlastName4" placeholder="Home Address" formControlName="homeAddress">
-      </div><br><br>
 
-      <div class="form-group col-md-9">
-        <input type="text" class="form-control" id="inputlastName4" placeholder="Company Address" formControlName="companyAddress">
-      </div><br><br>
+<select>
+  <optgroup label="Home Addresses">
+    <option value="home1">Home Address 1</option>
+    <option value="home2">Home Address 2</option>
+  </optgroup>
+  <optgroup label="Company Addresses">
+    <option value="company1">Company Address 1</option>
+    <option value="company2">Company Address 2</option>
+  </optgroup>
+</select>
+
+
+
 
 
       <div class="form-group col-md-9">
@@ -110,16 +130,21 @@
       </div>
 
       <!--To show error-->
-      <div *ngIf="formSubmitted" class="text-danger">
+      <div class="text-danger">
         <div *ngIf="registrationForm.get('tags')?.errors?.['required']">Tags required</div>
         <div *ngIf="registrationForm.get('tags')?.errors?.['tags']">Please select Tags</div>
       </div><br><br>
       </div>
   </form>
-</div>
+
 </div>
 </div>
 <div mat-dialog-actions>
-  <button routerLink="/register" class="btn btn-danger">cancel</button>
-  <button (click)="proceedRegistration()" class="btn btn-primary">Submit</button>
+  <button routerLink="/register"  class="btn btn-danger">cancel</button>
+  <!-- <button routerLink="/user" (click)="proceedRegistration()" class="btn btn-primary">Submit</button> -->
+  <button type="submit"  routerLink="/user" class="btn btn-primary">Submit</button>
+
+
+
+
 </div>
